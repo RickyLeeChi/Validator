@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+ 	<bean id="PasswordValidator" class="org.sideproject.service.PasswordValidatorService">
+ 		<constructor-arg name = "rules">  
+			<list>  
+				<ref bean = "RuleOfLowercaseNumbericDigit"/> 
+				<ref bean = "RuleOfLength"/> 
+				<ref bean = "RuleOfNonConsecutiveDigit"/> 
+			</list>  
+		</constructor-arg>  
+
+<!-- 	    
+		<property name="rules">
+			<list>
+				<value>(^[a-z]+\d+$)|(^\d+[a-z]+$)</value>
+				<value>(^.{5,12}$)</value>
+				<value>^(?!.*(\w{1,})\1).+$</value>
+			</list>
+		</property> 
+-->
+  	</bean>
+  	
+  	<bean id="RuleOfLowercaseNumbericDigit" class="org.sideproject.service.CheckRule">
+  		<constructor-arg name = "regEx" value = "(^[a-z]+\d+$)|(^\d+[a-z]+$)">  
+		</constructor-arg>  
+  	</bean>
+  	
+  	<bean id="RuleOfLength" class="org.sideproject.service.CheckRule">
+  		<constructor-arg name = "regEx" value = "(^.{5,12}$)">  
+		</constructor-arg>  
+  	</bean>
+  	
+  	<bean id="RuleOfNonConsecutiveDigit" class="org.sideproject.service.CheckRule">
+  		<constructor-arg name = "regEx" value = "^(?!.*(\w{1,})\1).+$">  
+		</constructor-arg>  
+  	</bean>
+</beans>
