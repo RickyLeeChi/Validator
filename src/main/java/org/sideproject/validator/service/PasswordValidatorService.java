@@ -2,7 +2,7 @@ package org.sideproject.validator.service;
 
 import java.util.List;
 
-import org.sideproject.validator.CheckRule;
+import org.sideproject.validator.rule.CheckRule;
 
 public class PasswordValidatorService extends ValidatorService{
 	public List<CheckRule> rules;

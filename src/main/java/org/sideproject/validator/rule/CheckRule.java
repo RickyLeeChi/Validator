@@ -1,4 +1,4 @@
-package org.sideproject.validator;
+package org.sideproject.validator.rule;
 
 public class CheckRule {
 	String regEx;

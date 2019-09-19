@@ -24,17 +24,17 @@
 -->
   	</bean>
   	
-  	<bean id="RuleOfLowercaseNumbericDigit" class="org.sideproject.service.CheckRule">
+  	<bean id="RuleOfLowercaseNumbericDigit" class="rg.sideproject.validator.rule.CheckRule">
   		<constructor-arg name = "regEx" value = "(^[a-z]+\d+$)|(^\d+[a-z]+$)">  
 		</constructor-arg>  
   	</bean>
   	
-  	<bean id="RuleOfLength" class="org.sideproject.service.CheckRule">
+  	<bean id="RuleOfLength" class="org.sideproject.validator.rule.CheckRule">
   		<constructor-arg name = "regEx" value = "(^.{5,12}$)">  
 		</constructor-arg>  
   	</bean>
   	
-  	<bean id="RuleOfNonConsecutiveDigit" class="org.sideproject.service.CheckRule">
+  	<bean id="RuleOfNonConsecutiveDigit" class="org.sideproject.validator.rule.CheckRule">
   		<constructor-arg name = "regEx" value = "^(?!.*(\w{1,})\1).+$">  
 		</constructor-arg>  
   	</bean>
