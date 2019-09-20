@@ -1,5 +1,7 @@
 package org.sideproject.validator.service;
 
-public abstract class ValidatorService {
-	protected abstract boolean doAction(); 
+import org.sideproject.validator.entity.ValidateResult;
+
+public interface ValidatorService {
+	public ValidateResult doValidate(String data); 
 }

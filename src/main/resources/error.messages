@@ -1,0 +1,6 @@
+000 : General Error
+
+100 : Password can't blank
+101 : Password must contain lowercase and numberic digit
+102 : Password must be between 5 and 12 characters in length
+103 : Password must not contain consecutive digit

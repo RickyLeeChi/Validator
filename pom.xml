@@ -6,6 +6,52 @@
   <name>PasswordValidator</name>
   <description>A simple password validator.</description>
   
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<junit.version>5.4.0</junit.version>
+	<springframework.version>5.1.7.RELEASE</springframework.version>
+	<commons-configuration2.version>2.0</commons-configuration2.version>
+	<log4j.version>2.11.2</log4j.version>
+  </properties>
+  
+  <dependencies>
+  	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-core</artifactId>
+	    <version>${springframework.version}</version>
+	</dependency>	
+	
+	<dependency>
+   		<groupId>org.springframework</groupId>
+    	<artifactId>spring-context</artifactId>
+    	<version>5.1.7.RELEASE</version>
+	</dependency>
+	
+	<dependency>
+    	<groupId>org.apache.commons</groupId>
+    	<artifactId>commons-configuration2</artifactId>
+    	<version>${commons-configuration2.version}</version>
+	</dependency>
+	
+	<dependency>
+ 		<groupId>org.apache.logging.log4j</groupId>
+ 		<artifactId>log4j-api</artifactId>
+ 		<version>${log4j.version}</version>
+	</dependency>
+	
+	<dependency>
+ 		<groupId>org.apache.logging.log4j</groupId>
+ 		<artifactId>log4j-core</artifactId>
+ 		<version>${log4j.version}</version>
+	</dependency>
+	
+	<dependency> 
+   		<groupId>org.apache.logging.log4j</groupId>
+   		<artifactId>log4j-1.2-api</artifactId>
+   		<version>${log4j.version}</version>
+	</dependency>
+  </dependencies>
+  
   <build>
   	<finalName>${project.artifactId}</finalName>
   	<plugins>
@@ -23,7 +69,7 @@
 			<artifactId>maven-resources-plugin</artifactId>
 			<version>2.5</version>
 			<configuration>
-				<encoding>UTF-8</encoding>
+				<encoding>${project.build.sourceEncoding}</encoding>
 			</configuration>
 		</plugin>
 		<plugin>

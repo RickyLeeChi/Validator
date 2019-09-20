@@ -2,19 +2,28 @@ package org.sideproject.validator.service;
 
 import java.util.List;
 
-import org.sideproject.validator.rule.CheckRule;
+import org.sideproject.validator.entity.ValidateResult;
+import org.sideproject.validator.rule.Rule;
 
-public class PasswordValidatorService extends ValidatorService{
-	public List<CheckRule> rules;
-	
-	public PasswordValidatorService(List<CheckRule> rules) {
+public class PasswordValidatorService implements ValidatorService{
+	public List<Rule> rules;
+
+	public PasswordValidatorService(List<Rule> rules) {
 		this.rules = rules;
 	}
 	
 	@Override
-	protected boolean doAction() {
-		// TODO Auto-generated method stub
-		return false;
+	public ValidateResult doValidate(String data) {
+		ValidateResult results = new ValidateResult();
+		
+		for(Rule rule : rules) {
+			boolean success = rule.doAction(data);
+			
+			if(!success) {
+				results.addValidteResult(rule.getCode());
+			}
+		}
+		
+		return results;
 	}
-
 }

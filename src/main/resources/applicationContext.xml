@@ -7,6 +7,7 @@
  	<bean id="PasswordValidator" class="org.sideproject.service.PasswordValidatorService">
  		<constructor-arg name = "rules">  
 			<list>  
+				<ref bean = "RuleOfNonEmpty"/> 
 				<ref bean = "RuleOfLowercaseNumbericDigit"/> 
 				<ref bean = "RuleOfLength"/> 
 				<ref bean = "RuleOfNonConsecutiveDigit"/> 
@@ -24,17 +25,46 @@
 -->
   	</bean>
   	
-  	<bean id="RuleOfLowercaseNumbericDigit" class="rg.sideproject.validator.rule.CheckRule">
+  	<bean id="RuleOfNonEmpty" class="org.sideproject.validator.rule.RegExRule">
+  		<constructor-arg name = "code" value = "100">  
+		</constructor-arg>
+		  
+		<constructor-arg name = "description" value = "Password can't blank">  
+		</constructor-arg>
+		
+  		<constructor-arg name = "regEx" value = "(.+)">  
+		</constructor-arg>  
+  	</bean>
+  	
+  	<bean id="RuleOfLowercaseNumbericDigit" class="org.sideproject.validator.rule.RegExRule">
+  		<constructor-arg name = "code" value = "101">  
+		</constructor-arg>
+		  
+		<constructor-arg name = "description" value = "Password must contain lowercase and numberic digit">  
+		</constructor-arg>
+		
   		<constructor-arg name = "regEx" value = "(^[a-z]+\d+$)|(^\d+[a-z]+$)">  
 		</constructor-arg>  
   	</bean>
   	
-  	<bean id="RuleOfLength" class="org.sideproject.validator.rule.CheckRule">
+  	<bean id="RuleOfLength" class="org.sideproject.validator.rule.RegExRule">
+  		<constructor-arg name = "code" value = "102">  
+		</constructor-arg>
+		  
+		<constructor-arg name = "description" value = "Password must be between 5 and 12 characters in length">  
+		</constructor-arg>
+		
   		<constructor-arg name = "regEx" value = "(^.{5,12}$)">  
 		</constructor-arg>  
   	</bean>
   	
-  	<bean id="RuleOfNonConsecutiveDigit" class="org.sideproject.validator.rule.CheckRule">
+  	<bean id="RuleOfNonConsecutiveDigit" class="org.sideproject.validator.rule.RegExRule">
+  		<constructor-arg name = "code" value = "103">  
+		</constructor-arg>
+		  
+		<constructor-arg name = "description" value = "Password must not contain consecutive digit">  
+		</constructor-arg>
+		
   		<constructor-arg name = "regEx" value = "^(?!.*(\w{1,})\1).+$">  
 		</constructor-arg>  
   	</bean>
