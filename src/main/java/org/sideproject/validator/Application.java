@@ -1,10 +1,10 @@
 package org.sideproject.validator;
 
-import java.util.List;
 import java.util.Scanner;
 
 import org.sideproject.validator.entity.ValidateResult;
-import org.sideproject.validator.service.PasswordValidatorService;
+import org.sideproject.validator.service.ValidatorService;
+import org.sideproject.validator.util.ValidatorUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -35,12 +35,21 @@ public class Application {
         		System.out.println("Bye ~ Bye!!");        		
         	}
         	else {
-            	PasswordValidatorService service = (PasswordValidatorService) applicationContext.getBean("PasswordValidator");
+        		ValidatorService service = (ValidatorService) applicationContext.getBean("PasswordValidator");
             	ValidateResult results = service.doValidate(input);
+            	
+            	if(results.isValidateSuccess()) {
+            		System.out.println("Validate success");     
+            	}
+            	else {
+            		ValidatorUtils.outPutResult(results);
+            	}
         	}
         }
 	}
-    
+	/**
+	 * 
+	 */
 	private static void init() {
     	applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml"); 
  	}

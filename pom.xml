@@ -11,6 +11,7 @@
 	<junit.version>5.4.0</junit.version>
 	<springframework.version>5.1.7.RELEASE</springframework.version>
 	<commons-configuration2.version>2.0</commons-configuration2.version>
+	<commons-beanutils.version>1.9.3</commons-beanutils.version>
 	<log4j.version>2.11.2</log4j.version>
   </properties>
   
@@ -31,6 +32,12 @@
     	<groupId>org.apache.commons</groupId>
     	<artifactId>commons-configuration2</artifactId>
     	<version>${commons-configuration2.version}</version>
+	</dependency>
+	
+	<dependency>
+    	<groupId>commons-beanutils</groupId>
+    	<artifactId>commons-beanutils</artifactId>
+    	<version>${commons-beanutils.version}</version>
 	</dependency>
 	
 	<dependency>

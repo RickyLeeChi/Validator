@@ -4,7 +4,7 @@
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
         
- 	<bean id="PasswordValidator" class="org.sideproject.service.PasswordValidatorService">
+ 	<bean id="PasswordValidator" class="org.sideproject.validator.service.PasswordValidatorService">
  		<constructor-arg name = "rules">  
 			<list>  
 				<ref bean = "RuleOfNonEmpty"/> 
@@ -43,7 +43,7 @@
 		<constructor-arg name = "description" value = "Password must contain lowercase and numberic digit">  
 		</constructor-arg>
 		
-  		<constructor-arg name = "regEx" value = "(^[a-z]+\d+$)|(^\d+[a-z]+$)">  
+  		<constructor-arg name = "regEx" value = "(^[a-z]+\d+\w*$)|(^\d+[a-z]+\w*$)">  
 		</constructor-arg>  
   	</bean>
   	
