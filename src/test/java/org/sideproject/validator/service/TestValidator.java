@@ -16,10 +16,18 @@ public class TestValidator {
 	PasswordValidatorService service;
 	
 	String emptyString = "";
+	String onlyNumberString = "1234567";
 	
 	@Test
 	public void testEmptyString(){
 		ValidateResult results = service.doValidate(emptyString);
+		
+		ValidatorUtils.outPutResult(results);
+	}
+	
+	@Test
+	public void testOnlyNumString(){
+		ValidateResult results = service.doValidate(onlyNumberString);
 		
 		ValidatorUtils.outPutResult(results);
 	}
