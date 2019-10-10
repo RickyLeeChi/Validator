@@ -43,7 +43,7 @@
 		<constructor-arg name = "description" value = "Password must contain lowercase and numberic digit">  
 		</constructor-arg>
 		
-  		<constructor-arg name = "regEx" value = "(^[a-z]+\d+\w*$)|(^\d+[a-z]+\w*$)">  
+  		<constructor-arg name = "regEx" value = "(^[a-z]+\d+[a-z0-9]*$)|(^\d+[a-z]+[a-z0-9]*$)">  
 		</constructor-arg>  
   	</bean>
   	
