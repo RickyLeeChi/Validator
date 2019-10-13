@@ -6,12 +6,19 @@ import org.sideproject.validator.entity.ValidateResult;
 import org.sideproject.validator.service.PasswordValidatorService;
 import org.sideproject.validator.util.ValidatorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration("/applicationContext.xml")
+@TestPropertySource("classpath:application-test.properties")
 public class TestValidator {
+	
+	@Value("${test}")
+    private String test;
+	
 	@Autowired 
 	PasswordValidatorService service;
 	
